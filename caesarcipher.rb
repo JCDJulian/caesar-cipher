@@ -1,11 +1,12 @@
 #Julian De Ocampo
 #In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence.
 
-print "Enter 'e' to encrypt or 'd' to decode."
+while 1
+print "Enter 'e' to encrypt or 'd' to decode. Enter 'q' to quit."
 command = gets.chomp
 
 case command
-when "e" || "E"
+when "e", "E"
 
 print "Please enter a message."
 text = gets.chomp
@@ -38,7 +39,7 @@ shift = gets.chomp.to_i
 
 print "\n"
 
-when "d" || "D"
+when "d", "D"
 	print "Please enter a message to decode."
 	text = gets.chomp
 	print "Please enter how many spaces to shift (the key)."
@@ -58,8 +59,8 @@ when "d" || "D"
 		when 65 .. 90 #upper case
 			char = char.ord + shift
 			if (char > 90)
-				char = char - 65
-				char = 65 + char
+				char = char - 90
+				char = 64 + char
 			end
 			char = char.chr
 			print char
@@ -70,6 +71,12 @@ when "d" || "D"
 
 	print "\n"
 
+
+when 'q', 'Q'
+  abort('Goodbye')
+  
 else
-	print "Error. Command not recognized."
+  print "Error. Command not recognized."
+end
+ 
 end
